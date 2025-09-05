@@ -29,6 +29,8 @@ INSERT INTO emp (emp_id, emp_name, dept_id) VALUES
 (104, 'Meena', 2),
 (105, 'John', NULL);
 
+-- This are the Questions 
+
 select e.emp_name,d.dept_name from emp as e join dept as d
 on e.dept_id=d.dept_id;
 
