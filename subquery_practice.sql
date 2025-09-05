@@ -35,6 +35,26 @@ select name,marks from student where city='madurai'and marks > (select avg(marks
 
 select name,marks from student where marks >=  (select marks from student order by marks desc limit 1 offset 2);
 
+-- --testchange;
+
+select * from  student where marks = any  (select  marks from student where city='chennai');
+
+select * from student where marks > all( select marks from student where city='chennai');
+
+select name,marks,
+case
+	when marks>90 then "A"
+	when marks>80 and marks<90 then "B"
+    when marks>70 and marks<80 then "C"
+end  grade
+from student;
+
+select name,marks,
+case
+	when marks>90 then marks
+	-- when marks<90 then marks = null
+end  good_mark
+from student;
 
 use practice;
 
@@ -91,6 +111,8 @@ where s.marks in (select min(marks) from students where dept_id=s.dept_id) ;
 select s.student_name,d.dept_name,s.marks avg_marks from students s join stud_dept d on s.dept_id=d.dept_id 
 where s.marks > (select avg(marks) from students where dept_id=s.dept_id);
  
+
+
 
 
 
